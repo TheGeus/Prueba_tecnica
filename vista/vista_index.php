@@ -104,19 +104,22 @@
                     $(this).find(':submit').attr('disabled', false);
                     }, 1000);
             });
+
+            
         });
         function notificar(mensaje){
             return "<div class=\"toast bg-primary text-white fade show position-absolute top-0 end-0 \">"
-    +"<div class=\"toast-header bg-primary text-white\">"
-    +"    <strong class=\"me-auto\"><i class=\"bi-gift-fill\"></i>Webinar, mensaje!</strong>"
-    +"    <small>ahora</small>"
-    +"    <button type=\"button\" class=\"btn-close btn-close-white\" data-bs-dismiss=\"toast\"></button>"
-    +"</div>"
-    +"<div class=\"toast-body\">"
-    +mensaje
-    +"</div>"
-    +"</div>"
+                    +"<div class=\"toast-header bg-primary text-white\">"
+                    +"    <strong class=\"me-auto\"><i class=\"bi-gift-fill\"></i>Webinar, mensaje!</strong>"
+                    +"    <small>ahora</small>"
+                    +"    <button type=\"button\" class=\"btn-close btn-close-white\" data-bs-dismiss=\"toast\"></button>"
+                    +"</div>"
+                    +"<div class=\"toast-body\">"
+                    +mensaje
+                    +"</div>"
+                    +"</div>";
         }
+
     </script>
 </body>
 </html>
