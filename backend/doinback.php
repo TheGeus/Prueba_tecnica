@@ -1,12 +1,13 @@
 <?php
-/**
- * requerimientos
- */
+//Importar las clases de PHPMailer al espacio de nombres global
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Cargar el autocargador de Composer y filtrado
+require '../vendor/autoload.php';
 require '../funciones/filtrado.php';
-/**
- * Datos server
- */
-const CORREO = 'webmaster@example.com';
+
 /**
  * PreWebinar
  */
@@ -23,33 +24,64 @@ const SUBJECT_TRAS_QUINCE_DIAS_LEAD_MAGNET_EVENTO = "Lead Magnet relacionados al
 /**
  * Mensaje Agradecimiento
  */
-const AGRADECIMIENTO_INSCRIPCION = "<html>
-<head>
-  <title>Gracias por Inscribirte</title>
-</head>
-<body>
-  <p>Información útil.!</p>
-  <table>
-    <tr>
-      <th>Evento</th><th>Día</th><th>Mes</th><th>Año</th>
-    </tr>
-    <tr>
-      <td>Webinar</td><td>17th</td><td>Agosto</td><td>2023</td>
-    </tr>
-  </table>
-</body>
-</html>";
+const AGRADECIMIENTO_INSCRIPCION = "<p>Información útil.!</p>
+          <table>
+            <tr>
+              <th>Evento</th><th>Día</th><th>Mes</th><th>Año</th>
+            </tr>
+           <tr>
+        <td>Webinar</td><td>17th</td><td>Agosto</td><td>2023</td>
+     </tr>
+    </table>";
+
+function mandarMail($correoDestino, $subject, $message, $messageTextoPlano){
+    //Crear una instancia; pasar `true` habilita las excepciones
+    $mail = new PHPMailer(true);
+    
+    try {
+        //Ajustes del servidor
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Activar la salida de depuración verbosa
+        $mail->isSMTP();                                            //Enviar mediante SMTP
+        $mail->Host       = 'smtp.hostinger.com';                     //Configurar el servidor SMTP para enviar a través de
+        $mail->SMTPAuth   = true;                                   //Activar la autenticación SMTP
+        $mail->Username   = 'pruebatecnica@salvapiscinas.es';                     //Nombre de usuario SMTP
+        $mail->Password   = 'Geus428..';                               //SMTP contraseña
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Activar el cifrado implícito TLS
+        $mail->Port       = 465;                                    //Puerto TCP al que conectarse; utilice 587 si ha establecido `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`.
+    
+        //Destinatario(s)
+        $mail->setFrom('pruebatecnica@salvapiscinas.es', 'Prueba Tecnica');
+        $mail->addAddress($correoDestino);               //El nombre es opcional
+       // $mail->addReplyTo('pruebatecnica@salvapiscinas.es', 'Prueba');
+       // $mail->addCC('pruebatecnica@salvapiscinas.es');
+       // $mail->addBCC('pruebatecnica@salvapiscinas.es');
+    
+        //Archivos adjuntos
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         //añadir adjunto
+       // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //nombre opcional
+    
+        //Contenido del mensaje
+        $mail->isHTML(true);                                  //Establecer el formato del correo electrónico en HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+        $mail->AltBody = $messageTextoPlano;
+    
+        $mail->send();
+        echo 'true';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    
+}
+
 
 if(isset($_POST['INSCRIPCION_GRACIAS'])){
     if(!empty($_POST['email'])){
         $correoDestino = filtrado($_POST['email']);
-        $to      = $correoDestino;
         $subject = SUBJECT_INSCRIPCION;
         $message = AGRADECIMIENTO_INSCRIPCION;
-        $headers = 'From: '.CORREO;
-
-        mail($to, $subject, $message, $headers);
-        echo "true";
+        $messageTextoPlano = SUBJECT_INSCRIPCION;
+        mandarMail($correoDestino,$subject, $message, $messageTextoPlano);
     }else{
         echo "false";
     }
