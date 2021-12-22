@@ -1,3 +1,11 @@
 toast {
     z-index: 1051
 }
+#contenedor{
+    background: linear-gradient(65deg, #661ea4 0%, #912a8d 33%, #c23873 70%, #e64260 100%);
+}
+
+.modal.fade .modal-dialog {
+    transition: transform .3s !important;
+}
+
