@@ -46,6 +46,12 @@
                 </div>
             </div>
         </div>
+        <div id="countdown">
+            <div id="dia"></div>
+            <div id="hora"></div>
+            <div id="min"></div>
+            <div id="seg"></div>
+        </div>
     </div>
     <script type="application/javascript">
         $(function(){
@@ -118,6 +124,34 @@
                     +mensaje
                     +"</div>"
                     +"</div>";
+        }
+        function tiempoRestante(tiempo){
+            let contador = $('#countdown');
+            let getDia = $('#dia');
+            let getHora = $('#hora');
+            let getMin = $('#min');
+            let getSeg = $('#seg');
+
+            const reloj = () => {
+                let tiempoRes = Date.parse(tiempo) - Date.parse(new Date());
+                let dia = Math.floor(tiempoRes / (1000 * 60 * 60 * 24));
+                let hora = Math.floor(tiempoRes / (1000 * 60 * 60));
+                let min = Math.floor(tiempoRes / (1000 * 60));
+                let seg = Math.floor(tiempoRes / (1000) % 60);
+
+                return {'tiempoRestante':tiempoRes, 'dia':dia, 'hora':hora, 'min':min, 'seg':seg} 
+            }
+            const actualizarReloj = (reloj) => {
+
+                
+                const pluralSingular = (numero) => {
+                
+                }
+                if(tiempoRes <= 0){
+                    clearInterval();
+                    contador.html("<div></div>");
+                }
+            }
         }
 
     </script>
