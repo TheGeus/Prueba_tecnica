@@ -83,9 +83,10 @@
                         success:function(response){
                             if(response == "true"){
                                 $('#contenedor').append(notificar(VALIDO));
-                            }
-                            if(response == "false"){
+                            }else if(response == "false"){
                                 $('#contenedor').append(notificar(FALLO_EMAIL));
+                            }else{
+                                $('#contenedor').append(notificar(response));
                             }
                         },
                         error:function(error){
