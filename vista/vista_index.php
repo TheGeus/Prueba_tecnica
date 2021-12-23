@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba Técnica</title>
-    <link rel="stylesheet" href="util/css/styles.css">
+    <link rel="stylesheet" href="util/css/styles.css?version=<?php echo mt_rand(); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="util/js/config.js?version=<?php echo mt_rand(); ?>"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="m-0 vh-100 row justify-content-center align-items-center position-relative" id="contenedor">
@@ -53,6 +54,28 @@
             <div id="seg"></div>
         </div>
     </div>
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-2">
+            <!-- social media -->
+            <section class="mb-2">
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.instagram.com/analyticalways/" role="button"
+                ><img src="https://img.icons8.com/ios/50/000000/instagram-new.png"></a>
+            <!-- Youtube -->
+            <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.youtube.com/c/Analyticalways" role="button"
+                ><img src="https://img.icons8.com/ios/50/000000/youtube-play--v1.png">
+            </a>
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.linkedin.com/company/analyticalways/" role="button"
+                ><img src="https://img.icons8.com/ios/50/000000/linkedin.png">
+            </a>
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-white" href="https://analyticalways.com/">analyticalways.com</a>
+        </div>
+    </footer>
     <script type="application/javascript">
         $(function(){
             $("#prueba").on('submit', function(e){
