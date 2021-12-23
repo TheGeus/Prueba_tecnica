@@ -17,5 +17,5 @@ toast {
 
 .btn-rose:hover{
     background-color: white !important;
-    color: black;
+    color: black !important;
 }
