@@ -161,7 +161,7 @@
 
                 return {'tiempoRestante':tiempoRes, 'dia':dia, 'hora':hora, 'min':min, 'seg':seg} 
             }
-            const actualizarReloj = (reloj) => {
+            const actualizarReloj = () => {
 
                 
                 const pluralSingular = (numero) => {
@@ -172,6 +172,8 @@
                     contador.html("<div></div>");
                 }
             }
+            actualizarReloj();
+            let timeinterval = setInterval(updateClock, 1000);
         }
     </script>
 </body>
