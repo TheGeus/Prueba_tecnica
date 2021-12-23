@@ -9,3 +9,12 @@ toast {
 .modal.fade .modal-dialog {
     transition: transform .3s !important;
 }
+
+.btn-rose{
+    background-color: #912a8d !important;
+}
+
+.btn-rose:hover{
+    background-color: white !important;
+    color: black;
+}
