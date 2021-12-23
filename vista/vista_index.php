@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="m-0 vh-100 row justify-content-center align-items-center position-relative" id="contenedor">
-        <button type="button" class="btn btn-primary col-auto" data-bs-toggle="modal" data-bs-target="#webinarModal" data-bs-whatever="@getbootstrap">Inscribirse</button>
+        <button type="button" class="btn btn-rose col-auto" data-bs-toggle="modal" data-bs-target="#webinarModal" data-bs-whatever="@getbootstrap">Inscribirse</button>
         <div class="modal fade" id="webinarModal" tabindex="-1" aria-labelledby="webinarModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
