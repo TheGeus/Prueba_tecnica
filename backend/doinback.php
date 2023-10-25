@@ -44,21 +44,14 @@ function mandarMail($correoDestino, $subject, $message, $messageTextoPlano){
         $mail->isSMTP();                                            //Enviar mediante SMTP
         $mail->Host       = 'smtp.hostinger.com';                     //Configurar el servidor SMTP para enviar a través de
         $mail->SMTPAuth   = true;                                   //Activar la autenticación SMTP
-        $mail->Username   = 'pruebatecnica@salvapiscinas.es';                     //Nombre de usuario SMTP
-        $mail->Password   = 'Geus428..';                               //SMTP contraseña
+        $mail->Username   = 'el email';                     //Nombre de usuario SMTP
+        $mail->Password   = 'la clave';                               //SMTP contraseña
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Activar el cifrado implícito TLS
         $mail->Port       = 465;                                    //Puerto TCP al que conectarse; utilice 587 si ha establecido `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`.
     
         //Destinatario(s)
         $mail->setFrom('pruebatecnica@salvapiscinas.es', 'Prueba Tecnica');
         $mail->addAddress($correoDestino);               //El nombre es opcional
-       // $mail->addReplyTo('pruebatecnica@salvapiscinas.es', 'Prueba');
-       // $mail->addCC('pruebatecnica@salvapiscinas.es');
-       // $mail->addBCC('pruebatecnica@salvapiscinas.es');
-    
-        //Archivos adjuntos
-        //$mail->addAttachment('/var/tmp/file.tar.gz');         //añadir adjunto
-       // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //nombre opcional
     
         //Contenido del mensaje
         $mail->isHTML(true);                                  //Establecer el formato del correo electrónico en HTML
